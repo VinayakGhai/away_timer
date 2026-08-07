@@ -50,13 +50,14 @@ function createWindow(): void {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize
 
   const windowOptions: Electron.BrowserWindowConstructorOptions = {
-    width: saved?.windowBounds?.width ?? 320,
-    height: saved?.windowBounds?.height ?? 480,
-    x: saved?.windowBounds?.x ?? Math.round((width - 320) / 2),
-    y: saved?.windowBounds?.y ?? Math.round((height - 480) / 2),
-    minWidth: 140,
-    minHeight: 140,
-    maxWidth: 400,
+    title: 'Away Timer',
+    width: saved?.windowBounds?.width ? Math.min(saved.windowBounds.width, 260) : 240,
+    height: saved?.windowBounds?.height ? Math.min(saved.windowBounds.height, 260) : 240,
+    x: saved?.windowBounds?.x ?? Math.round((width - 240) / 2),
+    y: saved?.windowBounds?.y ?? Math.round((height - 240) / 2),
+    minWidth: 160,
+    minHeight: 160,
+    maxWidth: 600,
     frame: false,
     transparent: false,
     resizable: true,

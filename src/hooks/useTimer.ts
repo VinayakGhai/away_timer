@@ -133,7 +133,6 @@ export function useTimer(onTick?: (state: TimerState) => void): UseTimerReturn {
 
   const enterAway = useCallback(() => {
     updateTimer((prev) => {
-      if (prev.status !== 'running' && prev.status !== 'paused') return prev
       window.electronAPI?.trackEvent?.('AwayMode_Entered', { remaining_time: prev.remainingTime })
       return {
         ...prev,
